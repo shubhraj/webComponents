@@ -20,6 +20,16 @@ class ToggleButton extends HTMLElement {
          this._toggleButton.addEventListener('click', this._toggleInfo.bind(this));
     }
 
+    connectedCallback() {
+        if(this.hasAttribute('is-visible')){
+            if(this.getAttribute('is-visible') === 'true'){
+                 this._isVisible = true;
+                 this._infoBox.style.display = 'block';
+                 this._toggleButton.textContent = 'Hide';   
+            }
+        }
+    }
+
     _toggleInfo(){
         this._isVisible = !this._isVisible;
         this._toggleButton.textContent = this._isVisible ? 'Hide' : 'Show';
