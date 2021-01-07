@@ -6,10 +6,32 @@
     <title>Web Components</title>
     <script  src="tooltip.js"></script>
     <script src="confirm-link.js"></script>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #e91d83;
+        }
+        
+        html{
+            --html-color: #5eed75;
+            font-family: sans-serif;
+        }
+
+        div {
+            border: 1px solid red ;
+        }
+
+    </style>
 </head>
 <body>
-    <p> <wc-tooltip text="this are web Standards.">Web Components</wc-tooltip> are awesome !</p>
+    <p class="wcWithClass"> <wc-tooltip text="this are web Standards, text attribute value" class="important">
+       <span> Web Components </span>
+    </wc-tooltip> are awesome !</p>
     <p> <wc-tooltip></wc-tooltip></p>
     <a is='wc-confirm-link' href="https://www.google.com" >Google</a>
+    <!-- is =  : it works as a alias  -->
 </body>
 </html>
