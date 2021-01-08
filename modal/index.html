@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { 
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: sans-serif;
+            margin: 2rem;
+        }
+
+    </style>
+    <script src="modal.js"></script>
+</head>
+<body>
+    <wc-modal>
+        <h1 slot="title">Please Confirm!</h1>
+        <p>hey there this is a confirmation message that you agreed upon!</p>
+    </wc-modal>
+    <p>please confirm your choice</p>
+    <button>Show details & confirm</button>
+</body>
+
+<script>
+    let confirmButton = document.querySelector('button');
+    let modal = document.querySelector('wc-modal');
+    
+    modal.addEventListener('cancel',()=>{
+        console.log('cancel event triggered');
+    });
+
+    modal.addEventListener('confirm',()=>{
+        console.log('confirm event triggered');
+    });
+
+    confirmButton.addEventListener('click', ()=>{
+            //modal.setAttribute('opened','');
+            if(!modal.isOpen){
+                modal.open();
+                console.log('opening...');
+            }
+            
+    });
+
+</script>
+</html>
