@@ -10,7 +10,6 @@ export class ToolTip {
     @Prop() text: string;
 
     onToggleTooltip(){
-        console.log('function called');
         this.tooltipVisible = !this.tooltipVisible;
     }
 

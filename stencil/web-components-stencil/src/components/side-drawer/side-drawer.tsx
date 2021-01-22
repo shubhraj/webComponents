@@ -7,7 +7,10 @@ import { Component, h, Prop, State, Method } from "@stencil/core";
 })
 
 export class SideDrawer {
-    @State() showContactInfo = false;
+    //internal chanegs
+    @State() showContactInfo = false; 
+     
+    //outside+inside changes
     @Prop({reflect: true}) title: string;
     @Prop({reflect: true}) open: boolean;
 
