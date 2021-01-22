@@ -25,6 +25,9 @@ export namespace Components {
         "openDrawer": () => Promise<void>;
         "title": string;
     }
+    interface WcToolTip {
+        "text": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -39,9 +42,16 @@ declare global {
         prototype: HTMLWcSideDrawerElement;
         new (): HTMLWcSideDrawerElement;
     };
+    interface HTMLWcToolTipElement extends Components.WcToolTip, HTMLStencilElement {
+    }
+    var HTMLWcToolTipElement: {
+        prototype: HTMLWcToolTipElement;
+        new (): HTMLWcToolTipElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "wc-side-drawer": HTMLWcSideDrawerElement;
+        "wc-tool-tip": HTMLWcToolTipElement;
     }
 }
 declare namespace LocalJSX {
@@ -63,9 +73,13 @@ declare namespace LocalJSX {
         "open"?: boolean;
         "title"?: string;
     }
+    interface WcToolTip {
+        "text"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "wc-side-drawer": WcSideDrawer;
+        "wc-tool-tip": WcToolTip;
     }
 }
 export { LocalJSX as JSX };
@@ -74,6 +88,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "wc-side-drawer": LocalJSX.WcSideDrawer & JSXBase.HTMLAttributes<HTMLWcSideDrawerElement>;
+            "wc-tool-tip": LocalJSX.WcToolTip & JSXBase.HTMLAttributes<HTMLWcToolTipElement>;
         }
     }
 }
